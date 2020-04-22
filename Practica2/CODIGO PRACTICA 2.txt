@@ -1,0 +1,81 @@
+package abecedario;
+import java.util.Scanner;
+public class Abecedario {
+    public static void main(String[] args) {
+        int rand = 0, opt, tope = 0, n = 27;
+        Scanner Leer = new Scanner(System.in);
+        System.out.print("a b c d e f  h i j k l m n ñ o p q r s t u v w x y z");
+        char[] pila = new char[n];
+        System.out.println("-------elija una opcion -------------");
+        do {
+            System.out.println("1-llenar \n");
+            System.out.println("2-agregar \n");
+            System.out.println("3-mostrar \n");
+            System.out.println("4-eliminar \n");
+            System.out.println("5-ordenar \n");
+            System.out.println("6-buscar\n");
+            opt = Leer.nextInt();
+
+            switch (opt) {
+                case 1:
+                    System.out.println("llenar");
+                    String[] abc = {"a", "b", "c", "d", "e", "f", "g", "h",
+                        "i", "j", "k", "l", "m", "n", "ñ", "o",
+                        "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"};
+                    for (int i = 0; i < n; i++) {
+                        System.out.print(abc[i] + " ");
+
+                    }
+                    break;
+                case 2:
+
+                    System.out.println("---------agregar datos: ------------\n");
+                    if (tope < n) {
+
+                        System.out.println("digite un caracter");
+                        pila[tope] = Leer.next().charAt(0);
+                        tope++;
+                    } else {
+                        System.out.println("pila llena");
+
+                    }
+                    break;
+
+                case 3:
+                    System.out.println("LOS DATOS SON: ");
+                    if (tope > 0) {
+
+                        for (int i = 0; i < n; i++) {
+                            rand = (int) Math.round(Math.random() * 25);
+                            System.out.println(" " + pila[rand]);
+
+                        }
+                    } else {
+                        System.out.println("pila vacia ");
+
+                    }
+
+                    break;
+
+                case 4:
+
+                    tope--;
+
+                    break;
+                case 5:
+                    System.out.println("ordenamiento de z--a: ");
+                      for (int i = tope - 1; i >= 0; i--) {
+                        System.out.println("  " +  pila[i]);
+                    }
+                    break;
+                case 6:
+                    System.out.println("buscar pocisiones: ");
+                    for (int i = 0; i < tope; i++) {
+                        System.out.println("El Valor" + pila[i] + " Ocupa el : " + i + " Lugar");
+                    }
+                    break;
+            }
+        } while (opt != 6);
+    }
+}
+
